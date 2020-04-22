@@ -1,47 +1,47 @@
 import React from 'react';
 import './App.css';
 import Header from './Header';
-// import StatsControl from './StatsControl/StatsControl';
-// import FeedControl from './FeedControl/FeedControl';
+import StatsControl from './StatsControl/StatsControl';
+import FeedControl from './FeedControl/FeedControl';
 import CardControl from './CardControl/CardControl';
 
-// const masterCardList = [
-//   {
-//     dateSeen: new Date(2020, 3, 20),
-//     adult: true,
-//     offspring: true,
-//     numberOfOffSpring: 3,
-//     withPod: true,
-//     location: "Puget Sound",
-//   },
+const masterCardList = [
+  {
+    dateSeen: new Date(2020, 3, 20),
+    adult: true,
+    offspring: true,
+    numberOfOffSpring: 3,
+    withPod: true,
+    location: "Puget Sound",
+  },
 
-//   {
-//     dateSeen: new Date(2020, 4, 20),
-//     adult: false,
-//     offspring: false,
-//     numberOfOffSpring: 0,
-//     withPod: true,
-//     location: "Puget Sound",
-//   },
+  {
+    dateSeen: new Date(2020, 4, 20),
+    adult: false,
+    offspring: false,
+    numberOfOffSpring: 0,
+    withPod: true,
+    location: "Puget Sound",
+  },
 
-//   {
-//     dateSeen: new Date(2020, 4, 20),
-//     adult: false,
-//     offspring: false,
-//     numberOfOffSpring: 0,
-//     withPod: true,
-//     location: "San Juan Islands",
-//   },
+  {
+    dateSeen: new Date(2020, 4, 20),
+    adult: false,
+    offspring: false,
+    numberOfOffSpring: 0,
+    withPod: true,
+    location: "San Juan Islands",
+  },
 
-//   {
-//     dateSeen: new Date(2020, 4, 23),
-//     adult: true,
-//     offspring: true,
-//     numberOfOffSpring: 2,
-//     withPod: true,
-//     location: "Vancouver Islands",
-//   },
-// ];
+  {
+    dateSeen: new Date(2020, 4, 23),
+    adult: true,
+    offspring: true,
+    numberOfOffSpring: 2,
+    withPod: true,
+    location: "Vancouver Islands",
+  },
+];
 
 
 
@@ -55,8 +55,8 @@ class App extends React.Component {
       offspring: false,
       numberOfOffSpring: 0,
       withPod: false,
-      location: "",
-      masterCardList: []
+      location: "jk",
+      masterCardList: masterCardList
     };
   }
 
@@ -69,10 +69,21 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <div id="Header">
         <Header />
-        {/* <StatsControl /> */}
-        <CardControl onNewCard={this.handleAddingNewCardToList} />
-        {/* <FeedControl /> */}
+        </div>
+        <hr />
+        <div id="content">
+          <div id="StatsControl">
+            <StatsControl masterList={this.state.masterCardList}/>
+          </div>
+          <div id="CardControl">
+            <CardControl onNewCard={this.handleAddingNewCardToList} />
+          </div>
+          <div id="FeedControl">
+            <FeedControl />
+          </div>
+        </div>
       </React.Fragment>
     )
   }

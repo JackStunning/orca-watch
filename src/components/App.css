@@ -1,3 +1,51 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../Roboto/Roboto-Regular.ttf");
+  src: url("../Roboto/Roboto-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("../Comfortaa/Comfortaa-VariableFont_wght.ttf");
+}
+
+:root {
+  --content-padding: 10px;
+}
+
 body {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, #Header {
+  font-family: 'Comfortaa', cursive;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-gap: 5px;
+}
+
+#Header {
+  background-color: #03104F;
+  color: whitesmoke;
+  padding: 20px;
+}
+
+#StatsControl {
+  background-color: #D8C8FF;
+  padding: var(--content-padding);
+}
+
+#CardControl {
+  background-color: #3B357C;
+  color: white;
+  padding: var(--content-padding);
+}
+
+#FeedControl {
+  background-color: #D8C8FF;
+  padding: var(--content-padding);
 }

@@ -7,13 +7,24 @@ function NewCard(props) {
     event.preventDefault();
     props.onNewCardCreation({
       dateSeen: event.target.dateSeen.value, 
-      adult: event.target.adult.value, offspring: parseInt(event.target.offspring.value, 10), 
+      adult: isBool(event.target.adult.value),
+     offspring: parseInt(event.target.offspring.value, 10), 
       numberofOffspring: parseInt(event.target.numberOfOffspring.value, 10), 
-      withPod: event.target.withPod.value, 
+      withPod: isBool(event.target.withPod.value), 
       location: event.target.location.value, 
       id: v4()
     });
   }
+
+  function isBool (string){
+    if (string === "true"){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
 
   return (
     <React.Fragment>
@@ -27,20 +38,20 @@ function NewCard(props) {
         />
 
 
-        <div class="radio">
+        <div className="radio">
           <p>Did the orca have any offsprings?</p>
-          <label for="offspring">
+          <label htmlFor="offspring">
             Yes
             <input type="radio" name="offspring" value="true" unchecked />
           </label>
-          <label for="offspring">
+          <label htmlFor="offspring">
             No
             <input type="radio" name="offspring" value="false" unchecked />
           </label>
         </div>
         <br />
 
-        <label for="numberOfOffspring">
+        <label htmlFor="numberOfOffspring">
           How many offspring did this Orca have? 
         </label>
         <br />
@@ -51,7 +62,7 @@ function NewCard(props) {
         </select> 
         <br />
 
-        <label for="location">
+        <label htmlFor="location">
           Where did you see the Orca?
         </label>
         <br />
@@ -63,34 +74,34 @@ function NewCard(props) {
         <br />
         
         <br />
-        <div class="radio">
-          <label for="withPod">
+        <div className="radio">
+          <label htmlFor="withPod">
             Was this Orca an Adult?
         </label>
         <br />
-          <label for="adult">
+          <label htmlFor="adult">
             Adult
-            <input type="radio" name="adult" value= "true" unchecked />
+            <input type="radio" name="adult" value="true" unchecked={toString()} />
           </label>
-          <label for="adult">
+          <label htmlFor="adult">
             Juvenile
-            <input type="radio" name="adult" value= "false" unchecked />
+            <input type="radio" name="adult" value="false" unchecked={toString()} />
           </label>
         </div>
         <br />
 
-        <div class="radio">
-          <label for="withPod">
+        <div className="radio">
+          <label htmlFor="withPod">
             Did you see this Orca ?
         </label>
         <br />
-          <label for="withPod">
+          <label htmlFor="withPod">
             with a Pod
-            <input type="radio" name="withPod" value="true" unchecked />
+            <input type="radio" name="withPod" value="true" unchecked={toString()} />
           </label>
-          <label for="withoutPod">
-             without a Pod
-            <input type="radio" name="withPod" value="false" unchecked />
+          <label htmlFor="withoutPod">
+            without a Pod
+            <input type="radio" name="withPod" value="false" unchecked={toString()} />
           </label>
         </div>
         <br />

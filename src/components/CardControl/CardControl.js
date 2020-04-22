@@ -2,7 +2,6 @@ import React from 'react';
 import NewCard from './NewCard';
 
 class CardControl extends React.Component {
-
   constructor(props){
     super(props);
   }
