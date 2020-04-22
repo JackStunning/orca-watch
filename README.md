@@ -4,7 +4,7 @@
 
 #### React Fundamentals Exercise for [Epicodus](https://www.epicodus.com/), 04.22.2020
 
-#### By **Adela Darmansyah and Steven Fleming**
+#### By **Adela Darmansyah, Steven Fleming, Jack Dunning**
 
 [About](#About) | [Screenshots](#Screenshots) | [Bugs](#Known-Bugs) | [Technologies](#Technologies-Used) | [Contact](#Support-and-Contact-Details)
 
@@ -42,10 +42,10 @@ No known bugs at this time.
 
 ## Support and Contact Details
 
-Feel free to provide feedback via email: adela.yohana@gmail.com and 12flemings@gmail.com.
+Feel free to provide feedback via email: adela.yohana@gmail.com, 12flemings@gmail.com, JackStunning9001@gmail.com.
 
 ### License
 
 This application is licensed under the MIT license.
 
-Copyright (c) 2020 **Adela Darmansyah, Steven Fleming**
+Copyright (c) 2020 **Adela Darmansyah, Steven Fleming, Jack Dunning**
