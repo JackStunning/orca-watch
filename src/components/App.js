@@ -12,6 +12,7 @@ import CardControl from './CardControl/CardControl';
 //     offspring: true,
 //     numberOfOffSpring: 3,
 //     withPod: true,
+//     location: "Puget Sound",
 //   },
 
 //   {
@@ -20,6 +21,7 @@ import CardControl from './CardControl/CardControl';
 //     offspring: false,
 //     numberOfOffSpring: 0,
 //     withPod: true,
+//     location: "Puget Sound",
 //   },
 
 //   {
@@ -28,6 +30,7 @@ import CardControl from './CardControl/CardControl';
 //     offspring: false,
 //     numberOfOffSpring: 0,
 //     withPod: true,
+//     location: "San Juan Islands",
 //   },
 
 //   {
@@ -36,6 +39,7 @@ import CardControl from './CardControl/CardControl';
 //     offspring: true,
 //     numberOfOffSpring: 2,
 //     withPod: true,
+//     location: "Vancouver Islands",
 //   },
 // ];
 
@@ -51,8 +55,15 @@ class App extends React.Component {
       offspring: false,
       numberOfOffSpring: 0,
       withPod: false,
-      // masterCardList: []
+      location: "",
+      masterCardList: []
     };
+  }
+
+  handleAddingNewCardToList = (newCard) => {
+    const newMasterCardList = this.state.masterCardList.concat(newCard);
+    this.setState({masterCardList: newMasterCardList});
+    console.log(this.state.masterCardList);
   }
 
   render() {
@@ -60,7 +71,7 @@ class App extends React.Component {
       <React.Fragment>
         <Header />
         {/* <StatsControl /> */}
-        <CardControl />
+        <CardControl onNewCard={this.handleAddingNewCardToList} />
         {/* <FeedControl /> */}
       </React.Fragment>
     )
