@@ -6,9 +6,9 @@ function NewCard(props) {
   function handleNewCardSubmission(event) {
     event.preventDefault();
     props.onNewCardCreation({
-      dateSeen: event.target.dateSeen.value, 
+      dateSeen: new Date(), 
       adult: isBool(event.target.adult.value),
-     offspring: parseInt(event.target.offspring.value, 10), 
+      offspring: parseInt(event.target.offspring.value, 10), 
       numberofOffspring: parseInt(event.target.numberOfOffspring.value, 10), 
       withPod: isBool(event.target.withPod.value), 
       location: event.target.location.value, 
@@ -25,21 +25,21 @@ function NewCard(props) {
     }
   }
 
-
   return (
     <React.Fragment>
-      <h3>Add a New Orca Sighting</h3>
+      <h2>Add a New Orca Sighting</h2>
+      <hr />
       <form onSubmit={handleNewCardSubmission}> 
-        <input
+        {/* <input
           type='string'
           name='dateSeen'
           value={new Date()}
           hidden
-        />
-
+        /> */}
 
         <div className="radio">
-          <p>Did the orca have any offsprings?</p>
+          Did the orca have any offsprings?
+          <br />
           <label htmlFor="offspring">
             Yes
             <input type="radio" name="offspring" value="true" unchecked />
@@ -60,6 +60,7 @@ function NewCard(props) {
           <option value="2">2 offspring</option>
           <option value="3">3 offspring</option>
         </select> 
+        <br />
         <br />
 
         <label htmlFor="location">
@@ -96,11 +97,11 @@ function NewCard(props) {
         </label>
         <br />
           <label htmlFor="withPod">
-            with a Pod
+            With a Pod
             <input type="radio" name="withPod" value="true" unchecked={toString()} />
           </label>
           <label htmlFor="withoutPod">
-            without a Pod
+            Without a Pod
             <input type="radio" name="withPod" value="false" unchecked={toString()} />
           </label>
         </div>

@@ -7,6 +7,7 @@
 @font-face {
   font-family: "Comfortaa";
   src: url("../Comfortaa/Comfortaa-VariableFont_wght.ttf");
+  src: url("../Comfortaa/static/Comfortaa-Bold.ttf")
 }
 
 :root {
@@ -22,10 +23,27 @@ h1, h2, h3, h4, #Header {
   font-family: 'Comfortaa', cursive;
 }
 
+button {
+  padding: 10px;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 400;
+  font-size: 12pt;
+  color: #03104F;
+  border-radius: 2%;
+}
+
+a {
+  color: #03104F;
+}
+
+a:hover {
+  color: #FFFFFF;
+}
+
 #content {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-gap: 5px;
+  grid-template-columns: 1fr 3fr 2fr;
+  grid-gap: 10px;
 }
 
 #Header {

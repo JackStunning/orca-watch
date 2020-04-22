@@ -19,8 +19,6 @@ class CardControl extends React.Component {
       </React.Fragment>
     );
   }
-
-
 }
 
 export default CardControl;

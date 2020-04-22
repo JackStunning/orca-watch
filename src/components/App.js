@@ -81,7 +81,7 @@ class App extends React.Component {
             <CardControl onNewCard={this.handleAddingNewCardToList} />
           </div>
           <div id="FeedControl">
-            <FeedControl />
+            <FeedControl masterList={this.state.masterCardList}/>
           </div>
         </div>
       </React.Fragment>
