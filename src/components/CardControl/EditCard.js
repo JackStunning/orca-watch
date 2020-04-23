@@ -16,6 +16,7 @@ function EditCard(props) {
   }
   return (
     <React.Fragment>
+      <h1>THIS IN EDIT FORM VIEW</h1>
       <form onSubmit={handleEditCardSubmission}>
         <div className="radio">
           Did the orca have any offsprings?

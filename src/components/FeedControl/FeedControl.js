@@ -8,6 +8,8 @@ class FeedControl extends React.Component {
     super(props);
   }
 
+  // <FeedControl masterCardList={this.state.masterCardList} onCardSelection={this.handleChangingSelectedCard} onEditCard={this.handleDisplayEditCard} />
+
   render() {
     return (
       <React.Fragment>
@@ -17,19 +19,22 @@ class FeedControl extends React.Component {
           <Card
             masterCardList={this.props.masterCardList[i]}
             whenCardClicked={this.props.onCardSelection}
-            whenEditClicked={this.props.onEditCard}
+            onEditCard={this.props.onEditCard}
           />
         )}
       </React.Fragment>
     );
   }
 }
+
+// onEditCard
 // this is the whenEditClicked={this.props.onEditCard}
 
 
 FeedControl.propTypes = {
   masterCardList: PropTypes.array,
-  whenCardClicked: PropTypes.func
+  whenCardClicked: PropTypes.func,
+  whenEditClicked: PropTypes.func
 };
 
 export default FeedControl;

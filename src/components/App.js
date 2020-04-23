@@ -66,12 +66,22 @@ class App extends React.Component {
     };
   }
 
+  handleDisplayEditCard = () => {
+    this.setState({
+      editing: true,
+      formVisibleOnPage: false,
+      selectedCard: null
+    });
+  }
+
   handleEditingCard = (editCard) => {
     let editedList = this.state.masterCardList.filter(card => card.id !== editCard.id);
     const newMasterCardList = editedList.concat(editCard);
     this.setState({
+      editing: true,
       masterCardList: newMasterCardList,
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      selectedCard: null
     });
     console.log("Edited list! " + newMasterCardList);
   }
@@ -80,7 +90,9 @@ class App extends React.Component {
     const newMasterCardList = this.state.masterCardList.concat(newCard);
     this.setState({
       formVisibleOnPage: true,
-      masterCardList: newMasterCardList
+      editing: false,
+      masterCardList: newMasterCardList,
+      selectedCard: null
     });
     console.log(this.state.masterCardList);
   }
@@ -89,16 +101,22 @@ class App extends React.Component {
     const selectedCard = this.state.masterCardList.filter(card => card.id === id)[0];
     this.setState({
       selectedCard: selectedCard,
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      editing: false
     });
     console.log("Details selected! ", id);
   }
 
   handleDisplayDefaultView = () => {
     console.log("Header clicked!");
-    this.setState({ formVisibleOnPage: true });
+    this.setState({
+      formVisibleOnPage: true,
+      editing: false,
+      selectedCard: null
+    });
     console.log(this.state.formVisibleOnPage);
   }
+
 
   render() {
     return (
@@ -111,11 +129,14 @@ class App extends React.Component {
           <div id="StatsControl">
             <StatsControl masterCardList={this.state.masterCardList} />
           </div>
+          {/* selectedCard this is the card that we are selecting when we click     editing this is the boolian to toggle the view */}
           <div id="CardControl">
             <CardControl onNewCard={this.handleAddingNewCardToList} selectedCard={this.state.selectedCard} editing={this.state.editing} formVisibleOnPage={this.state.formVisibleOnPage} />
           </div>
+
+          {/* On EditCard is the function that  */}
           <div id="FeedControl">
-            <FeedControl masterCardList={this.state.masterCardList} onCardSelection={this.handleChangingSelectedCard} onEditCard={this.handleEditingCard} />
+            <FeedControl masterCardList={this.state.masterCardList} onCardSelection={this.handleChangingSelectedCard} onEditCard={this.handleDisplayEditCard} />
           </div>
         </div>
       </React.Fragment>

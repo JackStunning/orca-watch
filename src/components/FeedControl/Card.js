@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Card(props) {
+  // console.log("PROPS IN CARD:", props);
+
+  // <Card
+  // masterCardList={this.props.masterCardList[i]}
+  // whenCardClicked={this.props.onCardSelection}
+  // onEditCard={this.props.onEditCard}
+  // />
 
   return (
     <React.Fragment>
@@ -9,10 +16,13 @@ function Card(props) {
       <p>{props.masterCardList.location}</p>
       <p>{props.masterCardList.id}</p>
       <button onClick={() => props.whenCardClicked(props.masterCardList.id)}>Details</button>
-      <button onClick={() => props.whenCardClicked(props.masterCardList.id)}>Edit</button>
+      <button onClick={() => props.onEditCard()}>Edit</button>
     </React.Fragment >
   );
 }
+
+
+// props.masterCardList.id
 
 // handleEditingCard = (editCard) => {
 //   let editedList = this.state.masterCardList.filter(card => card.id !== editCard.id);
