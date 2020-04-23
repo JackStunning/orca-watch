@@ -29,7 +29,16 @@ button {
   font-weight: 400;
   font-size: 12pt;
   color: #03104F;
-  border-radius: 2%;
+  border-radius: 10px;
+  border: #03104F solid 2px;
+}
+
+select {
+  font-family: 'Comfortaa', cursive;
+  color: #03104F;
+  border-radius: 5px;
+  border: #03104F solid 2px;
+  margin-top: 1%;
 }
 
 a {
@@ -66,4 +75,9 @@ a:hover {
 #FeedControl {
   background-color: #D8C8FF;
   padding: var(--content-padding);
+}
+
+.radioButton {
+  margin-top: 1%;
+  margin-right: 3%;
 }
