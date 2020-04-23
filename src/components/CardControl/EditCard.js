@@ -1,22 +1,43 @@
 import React from 'react';
-import { } from 'module';
+import PropTypes from 'prop-types';
 
 function EditCard(props) {
+
+  // console.log("PROPS OF EDITCARD:", props);
+
+  // currentVisibleState = <EditCard card={this.props.selectedCard} onEditingCard={this.handleEditingCard} />
+  const initalId = props.card.id;
+  // console.log("Value of f:", initalId);
   function handleEditCardSubmission(event) {
     event.preventDefault();
-    props.onEditCard({
-      dateSeen: event.target.dateSeen.value,
-      adult: event.target.adult.value,
-      offspring: parseInt(event.target.offspring.value, 10),
+    let cardToEdit = {
+      dateSeen: new Date,
+      adult: isBool(event.target.adult.value),
+      offspring: isBool(event.target.offspring.value, 10),
       numberofOffspring: parseInt(event.target.numberOfOffspring.value, 10),
-      withPod: event.target.withPod.value,
-      location: event.target.location.value,
-      id: event.target.id.value
-    });
+      withPod: isBool(event.target.withPod.value),
+      location: event.target.location.value.toString(),
+      id: initalId
+    };
+    console.log("CARD TO EDIT:", cardToEdit);
+    props.onEditingCard(cardToEdit);
   }
+
+  function isBool(string) {
+    if (string === "true") {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   return (
     <React.Fragment>
-      <h1>THIS IN EDIT FORM VIEW</h1>
+      <h1>CURRENTLY EDITING {props.card.id}</h1>
+      <hr />
+
+
       <form onSubmit={handleEditCardSubmission}>
         <div className="radio">
           Did the orca have any offsprings?
@@ -87,7 +108,7 @@ function EditCard(props) {
           </label>
         </div>
         <br />
-
+        <input type="text" name="id" value={initalId} />
         <button type='submit'>Edit Orca Card</button>
       </form>
     </React.Fragment>
@@ -95,7 +116,8 @@ function EditCard(props) {
 }
 
 EditCard.propTypes = {
-
-}
+  card: PropTypes.object,
+  onEditingCard: PropTypes.func
+};
 
 export default EditCard;

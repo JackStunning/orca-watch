@@ -66,11 +66,12 @@ class App extends React.Component {
     };
   }
 
-  handleDisplayEditCard = () => {
+  handleDisplayEditCard = (id) => {
+    const selectedCard = this.state.masterCardList.filter(card => card.id === id)[0];
     this.setState({
       editing: true,
       formVisibleOnPage: false,
-      selectedCard: null
+      selectedCard: selectedCard
     });
   }
 
@@ -131,7 +132,7 @@ class App extends React.Component {
           </div>
           {/* selectedCard this is the card that we are selecting when we click     editing this is the boolian to toggle the view */}
           <div id="CardControl">
-            <CardControl onNewCard={this.handleAddingNewCardToList} selectedCard={this.state.selectedCard} editing={this.state.editing} formVisibleOnPage={this.state.formVisibleOnPage} />
+            <CardControl onEditingCard={this.handleEditingCard} editing={this.state.editing} onNewCard={this.handleAddingNewCardToList} selectedCard={this.state.selectedCard} formVisibleOnPage={this.state.formVisibleOnPage} />
           </div>
 
           {/* On EditCard is the function that  */}

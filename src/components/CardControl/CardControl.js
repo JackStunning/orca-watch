@@ -15,15 +15,16 @@ class CardControl extends React.Component {
 
 
     let currentVisibleState = null;
-    console.log("PROPS IN CARDCONTROL: ", this.props);
+    // console.log("PROPS IN CARDCONTROL: ", this.props);
 
-    if (this.props.selectedCard != null) {
+    // <CardControl onEditingCard={this.handleEditingCard} editing={this.state.editing} onNewCard={this.handleAddingNewCardToList} selectedCard={this.state.selectedCard} formVisibleOnPage={this.state.formVisibleOnPage} />
+    if (this.props.editing) {
+      console.log("Edit Form should appear!");
+      currentVisibleState = <EditCard card={this.props.selectedCard} onEditingCard={this.props.onEditingCard} />
+    } else if (this.props.selectedCard != null) {
       console.log("Details should appear!");
       console.log("SELECTED CARD:", this.props.selectedCard);
       currentVisibleState = <DetailsCard card={this.props.selectedCard} />
-    } else if (this.props.editing) {
-      console.log("Edit Form should appear!");
-      currentVisibleState = <EditCard card={this.props.selectedCard} />
     } else if (this.props.formVisibleOnPage) {
       console.log("Form should appear!");
       currentVisibleState = <NewCard onNewCardCreation={this.props.onNewCard} />

@@ -1,0 +1,16 @@
+handleDisplayEditCard
+handleEditingCard
+handleAddingNewCardToList
+handleChangingSelectedCard
+handleDisplayDefaultView
+
+***App***
+CardControl
+onEditingCard={this.handleEditingCard}
+onNewCard={this.handleAddingNewCardToList}
+
+FeedControl
+onCardSelection={this.handleChangingSelectedCard}
+onEditCard={this.handleDisplayEditCard}
+
+***CardControl***
