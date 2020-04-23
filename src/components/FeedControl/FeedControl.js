@@ -13,19 +13,22 @@ class FeedControl extends React.Component {
       <React.Fragment>
         <h2>Orca Feed</h2>
         <hr />
-        {this.props.masterList.map((card, i) =>
+        {this.props.masterCardList.map((card, i) =>
           <Card
-            masterList={this.props.masterList[i]}
+            masterCardList={this.props.masterCardList[i]}
             whenCardClicked={this.props.onCardSelection}
+            whenEditClicked={this.props.onEditCard}
           />
         )}
       </React.Fragment>
     );
   }
 }
+// this is the whenEditClicked={this.props.onEditCard}
+
 
 FeedControl.propTypes = {
-  masterList: PropTypes.array,
+  masterCardList: PropTypes.array,
   whenCardClicked: PropTypes.func
 };
 

@@ -31,6 +31,13 @@ button {
   color: #03104F;
   border-radius: 10px;
   border: #03104F solid 2px;
+  margin: 0 1%;
+}
+
+button:hover {
+  border: #3B357C solid 2px;
+  box-shadow: 2px 3px #3a3a3a;
+  padding: 11px;
 }
 
 select {

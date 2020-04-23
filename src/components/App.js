@@ -61,39 +61,61 @@ class App extends React.Component {
       location: "jk",
       masterCardList: masterCardList,
       formVisibleOnPage: true,
-      selectedCard: null
+      selectedCard: null,
+      editing: false
     };
+  }
+
+  handleEditingCard = (editCard) => {
+    let editedList = this.state.masterCardList.filter(card => card.id !== editCard.id);
+    const newMasterCardList = editedList.concat(editCard);
+    this.setState({
+      masterCardList: newMasterCardList,
+      formVisibleOnPage: false
+    });
+    console.log("Edited list! " + newMasterCardList);
   }
 
   handleAddingNewCardToList = (newCard) => {
     const newMasterCardList = this.state.masterCardList.concat(newCard);
-    this.setState({ masterCardList: newMasterCardList });
+    this.setState({
+      formVisibleOnPage: true,
+      masterCardList: newMasterCardList
+    });
     console.log(this.state.masterCardList);
   }
 
   handleChangingSelectedCard = (id) => {
     const selectedCard = this.state.masterCardList.filter(card => card.id === id)[0];
-    this.setState({ selectedCard: selectedCard });
+    this.setState({
+      selectedCard: selectedCard,
+      formVisibleOnPage: false
+    });
     console.log("Details selected! ", id);
+  }
+
+  handleDisplayDefaultView = () => {
+    console.log("Header clicked!");
+    this.setState({ formVisibleOnPage: true });
+    console.log(this.state.formVisibleOnPage);
   }
 
   render() {
     return (
       <React.Fragment>
         <div id="Header">
-          <Header />
+          <Header whenHeaderClicked={this.handleDisplayDefaultView} />
         </div>
         <hr />
         <div id="content">
           <div id="StatsControl">
-            <StatsControl masterList={this.state.masterCardList} />
+            <StatsControl masterCardList={this.state.masterCardList} />
           </div>
           <div id="CardControl">
-            <CardControl onNewCard={this.handleAddingNewCardToList} selectedCard={this.state.selectedCard} />
+            <CardControl onNewCard={this.handleAddingNewCardToList} selectedCard={this.state.selectedCard} editing={this.state.editing} formVisibleOnPage={this.state.formVisibleOnPage} />
           </div>
           <div id="FeedControl">
-            <FeedControl masterList={this.state.masterCardList} onCardSelection={this.handleChangingSelectedCard} />
-            {/* {selectedCard} */}
+            <FeedControl masterCardList={this.state.masterCardList} onCardSelection={this.handleChangingSelectedCard} onEditCard={this.handleEditingCard} />
           </div>
         </div>
       </React.Fragment>

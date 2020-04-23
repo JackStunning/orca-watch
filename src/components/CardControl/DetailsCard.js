@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 function DetailsCard(props) {
-  console.log("THIS IS THE PROP FOR DETAILS CARD: ", props);
   return (
     <React.Fragment>
       <h1>This is DetailsCard</h1>
@@ -16,7 +15,6 @@ function DetailsCard(props) {
     </React.Fragment>
   );
 }
-
 
 DetailsCard.propTypes = {
   dateSeen: PropTypes.object,

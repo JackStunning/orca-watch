@@ -1,6 +1,7 @@
 import React from 'react';
 import NewCard from './NewCard';
 import DetailsCard from './DetailsCard';
+import EditCard from './EditCard';
 
 class CardControl extends React.Component {
 
@@ -18,11 +19,11 @@ class CardControl extends React.Component {
     if (this.props.selectedCard != null) {
       console.log("SELECTED CARD:", this.props.selectedCard);
       currentVisibleState = <DetailsCard card={this.props.selectedCard} />
-    } else {
+    } else if (this.props.editing) {
+      currentVisibleState = <EditCard card={this.props.selectedCard} />
+    } else if (this.props.formVisibleOnPage) {
       currentVisibleState = <NewCard onNewCardCreation={this.props.onNewCard} />
     }
-
-    {/* <EditCard /> */ }
 
     return (
       <React.Fragment>
